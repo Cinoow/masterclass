@@ -5,69 +5,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Inscription session sport</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+  
+  :root {
+    --primary: #1a1a2e; /* Fond sombre */
+    --secondary: #6a11cb; /* Violet */
+    --accent: #2575fc; /* Bleu */
+    --text: #ffffff; /* Texte blanc */
+  }
+  
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
-    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
   }
+  
   form {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    width: 320px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
+  
+  h2 {
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+  
   label {
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
+    color: var(--text);
+    opacity: 0.9;
   }
+  
   input, select {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1.2rem;
-    border: none;
-    border-radius: 6px;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
   }
+  
   fieldset {
     border: none;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     padding: 0;
   }
+  
   legend {
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+    opacity: 0.9;
   }
+  
   .checkbox-group label {
     font-weight: normal;
-    display: block;
-    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
   }
+  
+  .checkbox-group input[type="radio"] {
+    width: auto;
+    margin-right: 0.8rem;
+  }
+  
   button {
     width: 100%;
-    background: #6a11cb;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
     color: white;
-    font-size: 1.1rem;
-    padding: 0.6rem;
+    font-size: 1rem;
+    padding: 1rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s;
   }
+  
   button:hover {
-    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px);
   }
+  
   .success-msg {
     text-align: center;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    color: #a6f1a6;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    color: #4caf50;
+    display: none;
+    padding: 1rem;
+    background: rgba(76, 175, 80, 0.2);
+    border-radius: 8px;
   }
 </style>
 </head>
@@ -85,22 +135,21 @@
   <label for="age">Âge *</label>
   <input type="number" id="age" name="entry.300592452" min="1" max="120" required />
 
- <fieldset>
-  <legend>Niveau de cardio *</legend>
-  <div class="checkbox-group">
-    <label><input type="radio" name="entry.929575666" value="Amateur" required /> Amateur</label>
-    <label><input type="radio" name="entry.929575666" value="Intermédiaire" /> Intermédiaire</label>
-    <label><input type="radio" name="entry.929575666" value="Aguéri" /> Aguéri</label>
-    <label><input type="radio" name="entry.929575666" value="Professionnel" /> Professionnel</label>
-  </div>
-</fieldset>
+  <fieldset>
+    <legend>Niveau de cardio *</legend>
+    <div class="checkbox-group">
+      <label><input type="radio" name="entry.929575666" value="Amateur" required /> Amateur</label>
+      <label><input type="radio" name="entry.929575666" value="Intermédiaire" /> Intermédiaire</label>
+      <label><input type="radio" name="entry.929575666" value="Aguéri" /> Aguéri</label>
+      <label><input type="radio" name="entry.929575666" value="Professionnel" /> Professionnel</label>
+    </div>
+  </fieldset>
 
-  <button type="submit">S’inscrire</button>
+  <button type="submit">S'inscrire</button>
 
-  <div class="success-msg" id="successMsg" style="display:none;">
+  <div class="success-msg" id="successMsg">
     Merci pour votre inscription !
   </div>
-
 </form>
 
 <script>
