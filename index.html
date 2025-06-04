@@ -5,111 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Inscription session sport</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-  
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff; /* Fond blanc */
-    color: #000000; /* Texte noir */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff; /* BLANC (changé) */
+    color: #000000; /* NOIR (changé) */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
-    padding: 20px;
   }
-  
   form {
-    background: #f5f5f5; /* Gris clair pour le container */
+    background: #f5f5f5; /* GRIS CLAIR (changé) */
     padding: 2rem;
     border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre plus subtile */
+    width: 320px;
   }
-  
-  h2 {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    font-size: 1.5rem;
-  }
-  
   label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #000000;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #000000; /* NOIR (changé) */
   }
-  
   input, select {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.5rem;
     margin-bottom: 1.2rem;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    color: #000000;
-    font-family: 'Inter', sans-serif;
+    border: 1px solid #e0e0e0; /* Bordure grise */
+    border-radius: 6px;
+    background: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
   }
-  
   fieldset {
     border: none;
     margin-bottom: 1.2rem;
     padding: 0;
   }
-  
   legend {
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-    color: #000000;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #000000; /* NOIR (changé) */
   }
-  
   .checkbox-group label {
     font-weight: normal;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.8rem;
-    cursor: pointer;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #000000; /* NOIR (changé) */
   }
-  
-  .checkbox-group input[type="radio"] {
-    width: auto;
-    margin-right: 0.8rem;
-  }
-  
   button {
     width: 100%;
-    background: #000000; /* Bouton noir */
-    color: white;
-    font-size: 1rem;
-    padding: 1rem;
+    background: #000000; /* NOIR (changé) */
+    color: white; /* Texte blanc */
+    font-size: 1.1rem;
+    padding: 0.6rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
-    transition: opacity 0.3s;
+    font-weight: bold;
   }
-  
   button:hover {
-    opacity: 0.9;
+    opacity: 0.9; /* Effet hover simplifié */
   }
-  
   .success-msg {
     text-align: center;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    color: #000000;
-    display: none;
-    padding: 1rem;
-    background: #f0f0f0;
-    border-radius: 8px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #000000; /* NOIR (changé) */
+    background: #e8e8e8; /* Gris très clair */
+    padding: 0.5rem;
+    border-radius: 4px;
   }
 </style>
 </head>
 <body>
 
+<!-- TOUT LE CONTENU RESTE IDENTIQUE CI-DESSOUS -->
 <form id="inscriptionForm">
   <h2>Inscription session sport</h2>
 
@@ -132,9 +103,9 @@
     </div>
   </fieldset>
 
-  <button type="submit">S'inscrire</button>
+  <button type="submit">S’inscrire</button>
 
-  <div class="success-msg" id="successMsg">
+  <div class="success-msg" id="successMsg" style="display:none;">
     Merci pour votre inscription !
   </div>
 </form>
