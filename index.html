@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inscription session sport</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  form {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    width: 320px;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    border: none;
+    border-radius: 6px;
+  }
+  fieldset {
+    border: none;
+    margin-bottom: 1.2rem;
+    padding: 0;
+  }
+  legend {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .checkbox-group label {
+    font-weight: normal;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  button {
+    width: 100%;
+    background: #6a11cb;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  }
+  .success-msg {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #a6f1a6;
+  }
+</style>
+</head>
+<body>
+
+<form id="inscriptionForm">
+  <h2>Inscription session sport</h2>
+
+  <label for="nom">Nom *</label>
+  <input type="text" id="nom" name="entry.790266947" required />
+
+  <label for="prenom">Prénom *</label>
+  <input type="text" id="prenom" name="entry.936284658" required />
+
+  <label for="age">Âge *</label>
+  <input type="number" id="age" name="entry.300592452" min="1" max="120" required />
+
+ <fieldset>
+  <legend>Niveau de cardio *</legend>
+  <div class="checkbox-group">
+    <label><input type="radio" name="entry.929575666" value="Amateur" required /> Amateur</label>
+    <label><input type="radio" name="entry.929575666" value="Intermédiaire" /> Intermédiaire</label>
+    <label><input type="radio" name="entry.929575666" value="Aguéri" /> Aguéri</label>
+    <label><input type="radio" name="entry.929575666" value="Professionnel" /> Professionnel</label>
+  </div>
+</fieldset>
+
+  <button type="submit">S’inscrire</button>
+
+  <div class="success-msg" id="successMsg" style="display:none;">
+    Merci pour votre inscription !
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('inscriptionForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSc8m3mm6ANYdOlgErENd-YaSLNsV1aEZLddmLESs_hFBwOE3Q/formResponse";
+
+    const formData = new FormData(form);
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(() => {
+      alert('Erreur lors de l\'envoi, merci de réessayer.');
+    });
+  });
+</script>
+
+</body>
+</html>
